@@ -1,19 +1,7 @@
 <?php
 //array of associated array
-$blogs = [
-    [
-        "title" => "first blog",
-        "intro" => "first intro"
-    ],
-    [
-        "title" => "second blog",
-        "intro" => "second intro"
-    ],
-    [
-        "title" => "third blog",
-        "intro" => "third intro"
-    ],
-];
+require "./Blog.php";
+$blogs = Blog::all();
 ?>
 
 
@@ -31,7 +19,7 @@ $blogs = [
         <a href="/">Home</a>
         <a href="/about.php">About</a>
     </nav>
-    <h1>Home</h1>
+    <h1>Blogs Count - <?= Blog::count() ?></h1>
     <?php foreach ($blogs as $blog) : ?>
         <div class="blog">
             <h1>
@@ -40,7 +28,7 @@ $blogs = [
                     (special blog)
                 <?php endif ?>
             </h1>
-            <p><?= $blog["intro"] ?></p>
+            <!-- <p><?= $blog["intro"] ?></p> -->
         </div>
     <?php endforeach ?>
 </body>
